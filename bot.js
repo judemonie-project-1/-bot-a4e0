@@ -1,3 +1,4 @@
+// build:1776204848878
 'use strict';
 var Telegraf=require('telegraf').Telegraf;
 var express=require('express');
@@ -47,7 +48,7 @@ function hasFud(t){var l=t.toLowerCase();return FUD.some(function(w){return l.in
 var NOT_LIVE=['$TOKEN hasn\u2019t launched yet. CA coming soon.','Not yet. Stay ready.','CA drops soon. Hold tight.'];
 var CTO_REPLIES=['$TOKEN is a CTO. Original dev gone. Community owns and runs this completely. No dev to rug.','CTO project. Dev walked away. Community stepped up and owns $TOKEN now. That is the strength.','No dev here. $TOKEN is 100% community-owned. Original dev left. Community drives this forward.'];
 function sysPrompt(){
-  return 'You are the community bot for $TOKEN, a BNB Smart Chain (BSC) meme token.\nToken: $TOKEN | Chain: BNB Smart Chain (BSC)\nSupply: N/A | Max Wallet: 4.9%\nTax: 5% buy / 5% sell\nContract: NOT RENOUNCED | LP: LOCKED\nDEV: Active, building, present. Never imply dev left.'+(TWITTER?'\nTwitter: '+TWITTER:'')+'\nNarrative: '+""+'\nPersonality: Confident, sharp, crypto-native. Talk like a seasoned degen who believes in the project. Direct and bold.\nRULES: 2-4 lines max. Natural and professional. Never share TG group link. Never repeat reply. If hype/casual/no question: reply IGNORE exactly.';
+  return 'You are the community bot for $TOKEN, a BNB Smart Chain (BSC) meme token.\nToken: $TOKEN | Chain: BNB Smart Chain (BSC)\nSupply: N/A | Max Wallet: 4.9%\nTax: 5% buy / 5% sell\nContract: RENOUNCED | LP: LOCKED\nDEV: Active, building, present. Never imply dev left.'+(TWITTER?'\nTwitter: '+TWITTER:'')+'\nNarrative: '+""+'\nPersonality: Confident, sharp, crypto-native. Talk like a seasoned degen who believes in the project. Direct and bold.\nRULES: 2-4 lines max. Natural and professional. Never share TG group link. Never repeat reply. If hype/casual/no question: reply IGNORE exactly.';
 }
 async function ask(msg){
   if(!_groqPool.length)throw new Error('No AI key configured. Add one with /addgroq in factory.');
@@ -119,7 +120,7 @@ bot.command('x',async function(ctx){return sendWithTracker(xMsg,ctx.chat.id,'Fol
 bot.command('twitter',async function(ctx){return sendWithTracker(xMsg,ctx.chat.id,'Follow $TOKEN on X',{reply_markup:{inline_keyboard:[[{text:'Follow on X',url:TWITTER}]]}});});
 bot.command('socials',function(ctx){return ctx.reply('<a href=\'https://dexscreener.com/bsc/0xF730Eb411F298cc146dA5B81d2f0C6D1FEe71AA6\'>Chart</a> | <a href=\'https://pancakeswap.finance/swap?outputCurrency=0xF730Eb411F298cc146dA5B81d2f0C6D1FEe71AA6\'>PancakeSwap</a>'+(TWITTER?' | <a href=\''+TWITTER+'\'>Twitter</a>':'')+(WEBSITE?' | <a href=\''+WEBSITE+'\'>Website</a>':''),{parse_mode:'HTML',disable_web_page_preview:true});});
 bot.command('links',function(ctx){return ctx.reply('<a href=\'https://dexscreener.com/bsc/0xF730Eb411F298cc146dA5B81d2f0C6D1FEe71AA6\'>Chart</a> | <a href=\'https://pancakeswap.finance/swap?outputCurrency=0xF730Eb411F298cc146dA5B81d2f0C6D1FEe71AA6\'>PancakeSwap</a>'+(TWITTER?' | <a href=\''+TWITTER+'\'>Twitter</a>':'')+(WEBSITE?' | <a href=\''+WEBSITE+'\'>Website</a>':''),{parse_mode:'HTML',disable_web_page_preview:true});});
-bot.command('info',function(ctx){return ctx.reply('<b>$TOKEN</b> \u2014 BNB Smart Chain (BSC)\n\nSupply: N/A\nMax Wallet: 4.9%\nTax: 5% buy / 5% sell\nContract: NOT RENOUNCED\nLP: LOCKED'+(TWITTER?'\nTwitter: '+TWITTER:''),{parse_mode:'HTML',disable_web_page_preview:true});});
+bot.command('info',function(ctx){return ctx.reply('<b>$TOKEN</b> \u2014 BNB Smart Chain (BSC)\n\nSupply: N/A\nMax Wallet: 4.9%\nTax: 5% buy / 5% sell\nContract: RENOUNCED\nLP: LOCKED'+(TWITTER?'\nTwitter: '+TWITTER:''),{parse_mode:'HTML',disable_web_page_preview:true});});
 bot.command('shill',async function(ctx){
   var shillMsgs=[
     'Have you heard about $TOKEN?\n\n$TOKEN \u2014 community-owned on BSC.\nRenounced. LP LOCKED. No dev games.\nThis is the quiet move. Load up.',
