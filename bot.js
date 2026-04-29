@@ -1,4 +1,4 @@
-// build:1777208009257
+// build:1777425412647
 'use strict';
 var Telegraf=require('telegraf').Telegraf;
 var express=require('express');
@@ -48,7 +48,7 @@ function hasFud(t){var l=t.toLowerCase();return FUD.some(function(w){return l.in
 var NOT_LIVE=['$ACRT hasn\u2019t launched yet. CA coming soon.','Not yet. Stay ready.','CA drops soon. Hold tight.'];
 var CTO_REPLIES=['$ACRT is a CTO. Original dev gone. Community owns and runs this completely. No dev to rug.','CTO project. Dev walked away. Community stepped up and owns $ACRT now. That is the strength.','No dev here. $ACRT is 100% community-owned. Original dev left. Community drives this forward.'];
 function sysPrompt(){
-  return 'You are the community bot for $ACRT, a BNB Smart Chain (BSC) meme token.\nToken: $ACRT | Chain: BNB Smart Chain (BSC)\nSupply: 1000000000 | Max Wallet: 4.9%\nTax: 5% buy / 5% sell\nContract: RENOUNCED | LP: LOCKED\nDEV: Active, building, present. Never imply dev left.'+(TWITTER?'\nTwitter: '+TWITTER:'')+'\nNarrative: '+"APE CARTEL is a movement. Built for dominance. Powered by pure degen ambition. The apes are loading. Bags are stacking. Total takeover."+'\nPersonality: Confident, sharp, crypto-native. Talk like a seasoned degen who believes in the project. Direct and bold.\nRULES: 2-4 lines max. Natural and professional. Never share TG group link. Never repeat reply. If hype/casual/no question: reply IGNORE exactly.';
+  return 'You are the community bot for $ACRT, a BNB Smart Chain (BSC) meme token.\nToken: $ACRT | Chain: BNB Smart Chain (BSC)\nSupply: 1000000000 | Max Wallet: 4.9%\nTax: 5% buy / 5% sell\nContract: RENOUNCED | LP: LOCKED\nDEV: Active, building, present. Never imply dev left.'+(TWITTER?'\nTwitter: '+TWITTER:'')+'\nNarrative: '+"APE CARTEL is a movement. Built for dominance. Powered by pure degen ambition. Total community takeover."+'\nPersonality: Confident, sharp, crypto-native. Talk like a seasoned degen who believes in the project. Direct and bold.\nRULES: 2-4 lines max. Natural and professional. Never share TG group link. Never repeat reply. If hype/casual/no question: reply IGNORE exactly.';
 }
 async function ask(msg){
   if(!_groqPool.length)throw new Error('No AI key configured. Add one with /addgroq in factory.');
